@@ -12,6 +12,17 @@ export async function getDb() {
 
 export async function initDb() {
   const db = await getDb();
+
+  await db.execAsync(`
+    PRAGMA journal_mode = WAL;
+    
+    CREATE TABLE IF NOT EXISTS categories (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL UNIQUE
+  );
+  
+  
+  
+  )`)
 }
 
-/
